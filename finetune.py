@@ -41,6 +41,10 @@ def log(log_file,str):
     log.writelines(str+'\n') 
     log.close()
 
+def decay(base_lr,epoch):
+    lr = base_lr *  (0.1 ** (epoch // 30))
+    return lr
+
 def poly(base_lr, power, total_epoch, now_epoch):
     return base_lr * (1 - math.pow(float(now_epoch) / float(total_epoch), power))
 
@@ -126,6 +130,8 @@ for epoch in range(start_epoch, total_epoch):
     print('epoch%d...'%epoch)
     log(args.log,'epoch%d...'%epoch)
     optimizer = torch.optim.SGD(model.parameters(), args.lr, momentum=0.9)
+    print optimizer
+    log(args.log,str(optimizer))
 
     train_accuracy, train_loss = train(model,train_loader,loss_func,optimizer)
     test_accuracy, test_loss = test(model, test_loader, loss_func)
