@@ -19,11 +19,11 @@ parser.add_argument('--batch-size', type=int, default=32, metavar='N',
                     help='input batch size for training (default: 32)')
 parser.add_argument('--test-batch-size', type=int, default=32, metavar='N',
                     help='input batch size for testing (default: 32)')
-parser.add_argument('--epochs', type=int, default=80, metavar='N',
-                    help='number of epochs to train (default: 80)')
+parser.add_argument('--epochs', type=int, default=160, metavar='N',
+                    help='number of epochs to train (default: 160)')
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
-parser.add_argument('--lr', type=float, default=0.0005, metavar='LR',
+parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                     help='learning rate (default: 0.0005)')
 parser.add_argument('--model', default='', type=str, metavar='PATH',
                     help='path to pruned model')
@@ -129,7 +129,8 @@ for epoch in range(start_epoch, total_epoch):
     start = time.time()
     print('epoch%d...'%epoch)
     log(args.log,'epoch%d...'%epoch)
-    optimizer = torch.optim.SGD(model.parameters(), args.lr, momentum=0.9)
+    lr=decay( args.lr,epoch)
+    optimizer = torch.optim.SGD(model.parameters(),lr, momentum=0.9)
     print optimizer
     log(args.log,str(optimizer))
 

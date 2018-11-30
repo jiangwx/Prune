@@ -16,7 +16,6 @@ import numpy as np
 
 from model import darknet
 
-
 parser = argparse.ArgumentParser(description='PyTorch CCCV30 training')
 parser.add_argument('--batch-size', type=int, default=32, metavar='N',
                     help='input batch size for training (default: 32)')
@@ -44,6 +43,10 @@ def log(log_file,str):
     log = open(log_file,'a+')
     log.writelines(str+'\n') 
     log.close()
+
+def decay(base_lr,epoch):
+    lr = base_lr *  (0.1 ** (epoch // 30))
+    return lr
 
 def poly(base_lr, power, total_epoch, now_epoch):
     return base_lr * (1 - math.pow(float(now_epoch) / float(total_epoch), power))
@@ -125,6 +128,7 @@ if start_epoch != 0:
 
 history_score=np.zeros((total_epoch + 1,4))
 
+loss_func = nn.CrossEntropyLoss()
 for epoch in range(start_epoch, total_epoch):
     start = time.time()
     print('epoch%d...'%epoch)
@@ -132,7 +136,9 @@ for epoch in range(start_epoch, total_epoch):
     if epoch<=total_epoch*0.5:
         lr = poly(args.lr, 4, total_epoch*0.5, epoch)
     optimizer = torch.optim.SGD(model.parameters(), lr, momentum=0.9)
-    loss_func = nn.CrossEntropyLoss()
+    print optimizer
+    log(args.log,str(optimizer))
+
     train_accuracy, train_loss = train(model,train_loader,loss_func,optimizer)
     test_accuracy, test_loss = test(model, test_loader, loss_func)
 
