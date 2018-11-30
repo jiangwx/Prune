@@ -33,7 +33,7 @@ parser.add_argument('--arch', default='darknet', type=str,
                     help='architecture to use')
 parser.add_argument('--depth', default=19, type=int,
                     help='depth of the neural network')
-parser.add_argument('--log', default='./logs/train_darknet19.log', type=str, metavar='PATH',
+parser.add_argument('--log', default='./logs/train/%s.log'%time.strftime('%Y-%m-%d_%H:%M:%S',time.localtime(time.time())), type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
 

@@ -29,7 +29,7 @@ parser.add_argument('--model', default='', type=str, metavar='PATH',
                     help='path to pruned model')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
-parser.add_argument('--log', default='./logs/finetune_darknet19.log', type=str, metavar='PATH',
+parser.add_argument('--log', default='./logs/finetune/%s.log'%time.strftime('%Y-%m-%d_%H:%M:%S',time.localtime(time.time())), type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
 
