@@ -17,12 +17,12 @@ import numpy as np
 from model import darknet
 
 parser = argparse.ArgumentParser(description='PyTorch CCCV30 training')
-parser.add_argument('--batch-size', type=int, default=32, metavar='N',
-                    help='input batch size for training (default: 32)')
+parser.add_argument('--batch-size', type=int, default=64, metavar='N',
+                    help='input batch size for training (default: 64)')
 parser.add_argument('--test-batch-size', type=int, default=32, metavar='N',
                     help='input batch size for testing (default: 32)')
-parser.add_argument('--epochs', type=int, default=120, metavar='N',
-                    help='number of epochs to train (default: 120)')
+parser.add_argument('--epochs', type=int, default=160, metavar='N',
+                    help='number of epochs to train (default: 160)')
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
 parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
@@ -137,7 +137,7 @@ if start_epoch != 0:
 history_score=np.zeros((total_epoch + 1,4))
 
 loss_func = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
+optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
 for epoch in range(start_epoch, total_epoch):
     start = time.time()
     print('epoch%d...'%epoch)
