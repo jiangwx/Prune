@@ -34,6 +34,31 @@ def log(log_file,str):
     log.writelines(str+'\n') 
     log.close()
 
+def generate_cfg(model):
+    cfg = []
+    for layer_index,layer in model.feature._modules.items():
+        if isinstance(layer, nn.Conv2d):
+            layer_cfg = []
+            layer_cfg.append(layer.out_channels)
+            layer_cfg.append(layer.kernel_size[0])
+            cfg.append(layer_cfg)
+        elif isinstance(layer, nn.MaxPool2d):
+            cfg.append('M')
+
+    return cfg
+
+def generate_pruned_cfg(cfg, percent):
+    pruned_cfg = []
+    for layer_cfg in cfg:
+        if layer_cfg == 'M':
+            pruned_cfg.append('M')
+        else:
+            pruned_layer_cfg = []
+            pruned_layer_cfg.append(int(layer_cfg[0]*percent))
+            pruned_layer_cfg.append(layer_cfg[1])
+            pruned_cfg.append(pruned_layer_cfg)
+    return pruned_cfg
+
 # pruned_layer_cfg store the remain fm index of each conv layer
 def generate_pruned_layer_cfg(model, pruned_cfg):
     pruned_layer_cfg = []
@@ -131,17 +156,24 @@ def get_flops(cfg,img_h,img_w):
             img_w=img_w/2
     return flops
 
-cfg=[[32,3],'M',[64,3],'M',[128,3],[64,1],[128,3],'M',[256,3],[128,1],[256,3],'M',[512,3],[256,1],[512,3],[256,1],[512,3],'M',[1024,3],[512,1],[1024,3],[512,1],[1024,3]]
-pruned_cfg=[[16,3],'M',[32,3],'M',[64,3],[32,1],[64,3],'M',[128,3],[64,1],[128,3],'M',[256,3],[128,1],[256,3],[128,1],[256,3],'M',[512,3],[256,1],[512,3],[256,1],[512,3]]
+#origin_flops=get_flops(cfg,224,224)
+#pruned_flops=get_flops(pruned_cfg,224,224)
+#print 'origin model flops: %d, pruned_model flops: %d'%(origin_flops,pruned_flops)
+#print 'pruned_cfg:'+str(pruned_cfg)
+
+model=torch.load(args.model)
+print model
+cfg = generate_cfg(model)
+print cfg
+pruned_cfg = generate_pruned_cfg(cfg,args.percent)
+print pruned_cfg
+
 origin_flops=get_flops(cfg,224,224)
 pruned_flops=get_flops(pruned_cfg,224,224)
 print 'origin model flops: %d, pruned_model flops: %d'%(origin_flops,pruned_flops)
 print 'pruned_cfg:'+str(pruned_cfg)
 
-model=torch.load(args.model)
-print model
-
-pruned_layer_cfg = generate_pruned_layer_cfg(model,pruned_cfg)
+pruned_layer_cfg = generate_pruned_layer_cfg(model, pruned_cfg)
 
 pruned_model = darknet(cfg=pruned_cfg)
 pruned_model.cuda()
