@@ -1,0 +1,646 @@
+epoch0...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 3.4014, Accuracy: 3291/45000 (7.3%)
+Test set: Average loss: 3.2234, Accuracy: 1671/15000 (11.1%)
+epoch0 time 200.4454s
+
+epoch1...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 3.1331, Accuracy: 5635/45000 (12.5%)
+Test set: Average loss: 3.2474, Accuracy: 2014/15000 (13.4%)
+epoch1 time 203.0431s
+
+epoch2...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.9000, Accuracy: 7936/45000 (17.6%)
+Test set: Average loss: 2.7581, Accuracy: 3168/15000 (21.1%)
+epoch2 time 204.4653s
+
+epoch3...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.6152, Accuracy: 11257/45000 (25.0%)
+Test set: Average loss: 2.7843, Accuracy: 3300/15000 (22.0%)
+epoch3 time 204.1186s
+
+epoch4...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.4233, Accuracy: 13339/45000 (29.6%)
+Test set: Average loss: 2.2548, Accuracy: 5039/15000 (33.6%)
+epoch4 time 201.8715s
+
+epoch5...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.2765, Accuracy: 14964/45000 (33.3%)
+Test set: Average loss: 2.1982, Accuracy: 5246/15000 (35.0%)
+epoch5 time 203.4944s
+
+epoch6...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.1806, Accuracy: 16092/45000 (35.8%)
+Test set: Average loss: 2.0421, Accuracy: 5992/15000 (39.9%)
+epoch6 time 202.4067s
+
+epoch7...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.0963, Accuracy: 17093/45000 (38.0%)
+Test set: Average loss: 2.1095, Accuracy: 5822/15000 (38.8%)
+epoch7 time 201.8393s
+
+epoch8...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 2.0395, Accuracy: 17910/45000 (39.8%)
+Test set: Average loss: 2.0988, Accuracy: 5866/15000 (39.1%)
+epoch8 time 201.8475s
+
+epoch9...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.9687, Accuracy: 18566/45000 (41.3%)
+Test set: Average loss: 1.9651, Accuracy: 6197/15000 (41.3%)
+epoch9 time 202.3945s
+
+epoch10...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.9235, Accuracy: 19256/45000 (42.8%)
+Test set: Average loss: 2.0199, Accuracy: 6182/15000 (41.2%)
+epoch10 time 200.3026s
+
+epoch11...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.8811, Accuracy: 19887/45000 (44.2%)
+Test set: Average loss: 1.9381, Accuracy: 6391/15000 (42.6%)
+epoch11 time 203.2859s
+
+epoch12...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.8393, Accuracy: 20171/45000 (44.8%)
+Test set: Average loss: 1.9553, Accuracy: 6394/15000 (42.6%)
+epoch12 time 202.1571s
+
+epoch13...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.7951, Accuracy: 20774/45000 (46.2%)
+Test set: Average loss: 1.9281, Accuracy: 6467/15000 (43.1%)
+epoch13 time 202.3891s
+
+epoch14...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.7648, Accuracy: 21167/45000 (47.0%)
+Test set: Average loss: 1.9128, Accuracy: 6577/15000 (43.8%)
+epoch14 time 201.7925s
+
+epoch15...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.7438, Accuracy: 21436/45000 (47.6%)
+Test set: Average loss: 1.9738, Accuracy: 6348/15000 (42.3%)
+epoch15 time 201.0845s
+
+epoch16...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.7164, Accuracy: 21823/45000 (48.5%)
+Test set: Average loss: 1.6408, Accuracy: 7495/15000 (50.0%)
+epoch16 time 201.3682s
+
+epoch17...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.6904, Accuracy: 22119/45000 (49.2%)
+Test set: Average loss: 1.8613, Accuracy: 6633/15000 (44.2%)
+epoch17 time 201.8098s
+
+epoch18...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.6634, Accuracy: 22446/45000 (49.9%)
+Test set: Average loss: 1.6226, Accuracy: 7614/15000 (50.8%)
+epoch18 time 202.4351s
+
+epoch19...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.6325, Accuracy: 22777/45000 (50.6%)
+Test set: Average loss: 1.6917, Accuracy: 7386/15000 (49.2%)
+epoch19 time 202.2835s
+
+epoch20...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.6137, Accuracy: 23020/45000 (51.2%)
+Test set: Average loss: 1.6621, Accuracy: 7543/15000 (50.3%)
+epoch20 time 201.7654s
+
+epoch21...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.6003, Accuracy: 23189/45000 (51.5%)
+Test set: Average loss: 1.6573, Accuracy: 7449/15000 (49.7%)
+epoch21 time 202.2515s
+
+epoch22...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5812, Accuracy: 23509/45000 (52.2%)
+Test set: Average loss: 1.5284, Accuracy: 8034/15000 (53.6%)
+epoch22 time 201.9145s
+
+epoch23...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5648, Accuracy: 23615/45000 (52.5%)
+Test set: Average loss: 1.5543, Accuracy: 7852/15000 (52.3%)
+epoch23 time 200.9083s
+
+epoch24...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5438, Accuracy: 23996/45000 (53.3%)
+Test set: Average loss: 1.6671, Accuracy: 7491/15000 (49.9%)
+epoch24 time 201.3159s
+
+epoch25...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5327, Accuracy: 24170/45000 (53.7%)
+Test set: Average loss: 1.5223, Accuracy: 8151/15000 (54.3%)
+epoch25 time 201.8227s
+
+epoch26...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5307, Accuracy: 24084/45000 (53.5%)
+Test set: Average loss: 1.7521, Accuracy: 7377/15000 (49.2%)
+epoch26 time 202.3822s
+
+epoch27...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5122, Accuracy: 24357/45000 (54.1%)
+Test set: Average loss: 1.4633, Accuracy: 8219/15000 (54.8%)
+epoch27 time 202.2525s
+
+epoch28...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.5015, Accuracy: 24353/45000 (54.1%)
+Test set: Average loss: 1.6299, Accuracy: 7895/15000 (52.6%)
+epoch28 time 200.5562s
+
+epoch29...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4934, Accuracy: 24665/45000 (54.8%)
+Test set: Average loss: 1.5575, Accuracy: 8005/15000 (53.4%)
+epoch29 time 201.7841s
+
+epoch30...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4806, Accuracy: 24646/45000 (54.8%)
+Test set: Average loss: 1.4880, Accuracy: 8363/15000 (55.8%)
+epoch30 time 202.1721s
+
+epoch31...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4732, Accuracy: 24830/45000 (55.2%)
+Test set: Average loss: 1.5025, Accuracy: 8148/15000 (54.3%)
+epoch31 time 201.7498s
+
+epoch32...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4612, Accuracy: 24938/45000 (55.4%)
+Test set: Average loss: 1.3883, Accuracy: 8618/15000 (57.5%)
+epoch32 time 201.6197s
+
+epoch33...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4551, Accuracy: 25076/45000 (55.7%)
+Test set: Average loss: 1.5740, Accuracy: 7902/15000 (52.7%)
+epoch33 time 200.9955s
+
+epoch34...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4477, Accuracy: 25269/45000 (56.2%)
+Test set: Average loss: 1.6494, Accuracy: 7836/15000 (52.2%)
+epoch34 time 200.9770s
+
+epoch35...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4485, Accuracy: 25132/45000 (55.8%)
+Test set: Average loss: 1.4250, Accuracy: 8463/15000 (56.4%)
+epoch35 time 201.0902s
+
+epoch36...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4238, Accuracy: 25498/45000 (56.7%)
+Test set: Average loss: 1.3843, Accuracy: 8676/15000 (57.8%)
+epoch36 time 201.5022s
+
+epoch37...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4335, Accuracy: 25389/45000 (56.4%)
+Test set: Average loss: 1.4272, Accuracy: 8481/15000 (56.5%)
+epoch37 time 201.2772s
+
+epoch38...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4179, Accuracy: 25621/45000 (56.9%)
+Test set: Average loss: 1.3810, Accuracy: 8777/15000 (58.5%)
+epoch38 time 202.0169s
+
+epoch39...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4168, Accuracy: 25463/45000 (56.6%)
+Test set: Average loss: 1.4799, Accuracy: 8264/15000 (55.1%)
+epoch39 time 201.2565s
+
+epoch40...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4067, Accuracy: 25755/45000 (57.2%)
+Test set: Average loss: 1.4079, Accuracy: 8555/15000 (57.0%)
+epoch40 time 201.5299s
+
+epoch41...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.4017, Accuracy: 25834/45000 (57.4%)
+Test set: Average loss: 1.4278, Accuracy: 8478/15000 (56.5%)
+epoch41 time 202.1928s
+
+epoch42...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3951, Accuracy: 25914/45000 (57.6%)
+Test set: Average loss: 1.3607, Accuracy: 8668/15000 (57.8%)
+epoch42 time 202.2157s
+
+epoch43...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3982, Accuracy: 25682/45000 (57.1%)
+Test set: Average loss: 1.3788, Accuracy: 8716/15000 (58.1%)
+epoch43 time 201.5849s
+
+epoch44...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3878, Accuracy: 25928/45000 (57.6%)
+Test set: Average loss: 1.3432, Accuracy: 8989/15000 (59.9%)
+epoch44 time 201.2133s
+
+epoch45...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3718, Accuracy: 26194/45000 (58.2%)
+Test set: Average loss: 1.4150, Accuracy: 8498/15000 (56.7%)
+epoch45 time 200.8815s
+
+epoch46...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3705, Accuracy: 26186/45000 (58.2%)
+Test set: Average loss: 1.3676, Accuracy: 8731/15000 (58.2%)
+epoch46 time 200.9526s
+
+epoch47...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3720, Accuracy: 26256/45000 (58.3%)
+Test set: Average loss: 1.4721, Accuracy: 8467/15000 (56.4%)
+epoch47 time 201.1875s
+
+epoch48...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+Train set: Average loss: 1.3705, Accuracy: 26114/45000 (58.0%)
+Test set: Average loss: 1.4174, Accuracy: 8567/15000 (57.1%)
+epoch48 time 199.6199s
+
+epoch49...
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
