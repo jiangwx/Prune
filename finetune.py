@@ -24,11 +24,15 @@ parser.add_argument('--epochs', type=int, default=160, metavar='N',
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
 parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
-                    help='learning rate (default: 0.0005)')
+                    help='learning rate (default: 0.001)')
 parser.add_argument('--model', default='', type=str, metavar='PATH',
                     help='path to pruned model')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
+parser.add_argument('--momentum', type=float, default=0.9, metavar='M',
+                    help='SGD momentum (default: 0.9)')
+parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
+                    metavar='W', help='weight decay (default: 1e-4)')
 parser.add_argument('--log', default='./logs/finetune/%s.log'%time.strftime('%Y-%m-%d_%H:%M:%S',time.localtime(time.time())), type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
@@ -124,13 +128,11 @@ history_score=np.zeros((total_epoch + 1,4))
 
 loss_func = nn.CrossEntropyLoss()
 test_accuracy, test_loss = test(model, test_loader, loss_func)
-
+optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
 for epoch in range(start_epoch, total_epoch):
     start = time.time()
     print('epoch%d...'%epoch)
     log(args.log,'epoch%d...'%epoch)
-    lr=decay( args.lr,epoch)
-    optimizer = torch.optim.SGD(model.parameters(),lr, momentum=0.9)
     print optimizer
     log(args.log,str(optimizer))
 
