@@ -135,9 +135,10 @@ pruned_flops=get_flops(pruned_model_cfg,224,224)
 print 'origin model flops: %d, pruned_model flops: %d'%(origin_flops,pruned_flops)
 print pruned_model_cfg
 pruned_layer_cfg = generate_pruned_layer_cfg(pruned_model_cfg)
-model = darknet().cuda()
+
+model=torch.load(args.model)
 print model
-model.load_state_dict(torch.load(args.model))
+
 pruned_model = darknet(cfg=pruned_model_cfg)
 pruned_model.cuda()
 print pruned_model

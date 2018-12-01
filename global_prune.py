@@ -162,10 +162,10 @@ origin_flops=get_flops(cfg,224,224)
 pruned_model_cfg,pruned_layer_cfg = generate_pruned_cfg(loss_rank, cfg, int(7200*args.percent))
 pruned_flops=get_flops(pruned_model_cfg,224,224)
 print pruned_model_cfg
-model = darknet()
-model.cuda()
+
+model=torch.load(args.model)
 print model
-model.load_state_dict(torch.load(args.model))
+
 pruned_model = darknet(cfg=pruned_model_cfg)
 pruned_model.cuda()
 print pruned_model
