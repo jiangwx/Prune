@@ -153,7 +153,7 @@ for epoch in range(start_epoch, total_epoch):
 
     torch.save(model.state_dict(), './models/train/check_point.pkl')
     if test_accuracy > max(history_score[:,2]):
-        torch.save(model.state_dict(), './models/train/best%.1f.pkl'%test_accuracy)
+        torch.save(model.state_dict(), './models/train/best.pkl')
 
     history_score[epoch][0] = train_accuracy
     history_score[epoch][1] = train_loss
