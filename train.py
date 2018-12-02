@@ -14,7 +14,7 @@ import math
 import time
 import numpy as np
 
-from model import darknet
+from model import *
 
 parser = argparse.ArgumentParser(description='PyTorch CCCV30 training')
 parser.add_argument('--batch-size', type=int, default=64, metavar='N',
@@ -124,7 +124,10 @@ train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_
 test_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/test_set', transform=test_data_transform)
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=True, num_workers=12)
 
-model = darknet()
+if args.arch == 'dark':
+    model = darknet()
+elif args.arch == 'vgg':
+    model = vgg()
 model.cuda()
 print model
 
