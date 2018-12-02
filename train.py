@@ -154,9 +154,9 @@ for epoch in range(start_epoch, total_epoch):
     train_accuracy, train_loss = train(model,train_loader,loss_func,optimizer)
     test_accuracy, test_loss = test(model, test_loader, loss_func)
 
-    torch.save(model, './models/train/check_point.pth')
+    torch.save(model, './models/train/check_point.pkl')
     if test_accuracy > max(history_score[:,2]):
-        torch.save(model, './models/train/best.pth')
+        torch.save(model, './models/train/best.pkl')
 
     history_score[epoch][0] = train_accuracy
     history_score[epoch][1] = train_loss
