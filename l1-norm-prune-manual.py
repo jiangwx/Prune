@@ -27,12 +27,27 @@ parser.add_argument('--depth', default=19, type=int,
                     help='depth of the neural network')
 parser.add_argument('--percent', default=0.5, type=float,
                     help='depth of the neural network')
+parser.add_argument('--save', default='pruned_model', type=str, 
+                    help='the name of pruned model')
 args = parser.parse_args()
 
 def log(log_file,str):
     log = open(log_file,'a+')
     log.writelines(str+'\n') 
     log.close()
+
+def generate_cfg(model):
+    cfg = []
+    for layer_index,layer in model.feature._modules.items():
+        if isinstance(layer, nn.Conv2d):
+            layer_cfg = []
+            layer_cfg.append(layer.out_channels)
+            layer_cfg.append(layer.kernel_size[0])
+            cfg.append(layer_cfg)
+        elif isinstance(layer, nn.MaxPool2d):
+            cfg.append('M')
+
+    return cfg
 
 # pruned_layer_cfg store the remain fm index of each conv layer
 def generate_pruned_layer_cfg(model, pruned_cfg):
@@ -131,15 +146,16 @@ def get_flops(cfg,img_h,img_w):
             img_w=img_w/2
     return flops
 
-cfg=[[32,3],'M',[64,3],'M',[128,3],[64,1],[128,3],'M',[256,3],[128,1],[256,3],'M',[512,3],[256,1],[512,3],[256,1],[512,3],'M',[1024,3],[512,1],[1024,3],[512,1],[1024,3]]
-pruned_cfg=[[16,3],'M',[32,3],'M',[64,3],[32,1],[64,3],'M',[128,3],[64,1],[128,3],'M',[256,3],[128,1],[256,3],[128,1],[256,3],'M',[512,3],[256,1],[512,3],[256,1],[512,3]]
+model=torch.load(args.model)
+print model
+cfg = generate_cfg(model)
+print cfg
+pruned_cfg=[[16,3],'M',[32,3],'M',[32,3],[32,1],[32,3],'M',[64,3],[64,1],[64,3],'M',[128,3],[128,1],[128,3],[128,1],[128,3],'M',[256,3],[256,1],[256,3],[256,1],[256,3]]
+
 origin_flops=get_flops(cfg,224,224)
 pruned_flops=get_flops(pruned_cfg,224,224)
 print 'origin model flops: %d, pruned_model flops: %d'%(origin_flops,pruned_flops)
 print 'pruned_cfg:'+str(pruned_cfg)
-
-model=torch.load(args.model)
-print model
 
 pruned_layer_cfg = generate_pruned_layer_cfg(model,pruned_cfg)
 
@@ -148,5 +164,5 @@ pruned_model.cuda()
 print pruned_model
 pruned_model_init(model, pruned_model, pruned_layer_cfg)
 
-torch.save(pruned_model, './models/prune/prune_%.2f_darknet19.pkl'%args.percent)
+torch.save(pruned_model, './models/prune/%s.pkl'%args.save)
 print('pruned model saved at models/prune')
