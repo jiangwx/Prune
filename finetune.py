@@ -141,7 +141,7 @@ for epoch in range(start_epoch, total_epoch):
 
     torch.save(model, './models/finetune/check_point.pkl')
     if test_accuracy > max(history_score[:,2]):
-        torch.save(model, './models/finetune/best.pkl')
+        torch.save(model, './models/finetune/best_%.4f.pkl'%test_accuracy)
 
     history_score[epoch][0] = train_accuracy
     history_score[epoch][1] = train_loss
