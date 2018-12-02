@@ -45,8 +45,6 @@ parser.add_argument('--log', default='./logs/train/%s.log'%time.strftime('%Y-%m-
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
 
-print args
-
 def log(log_file,str):
     log = open(log_file,'a+')
     log.writelines(str+'\n') 
@@ -101,6 +99,9 @@ def train(model, data_loader, loss_func, optimizer):
     log(args.log,'Train set: Average loss: {:.4f}, Accuracy: {}/{} ({:.1f}%)'.format(train_loss, correct, len(data_loader.dataset), accuracy))
     return accuracy, train_loss
 
+print args
+log(args.log,str(args))
+
 train_data_transform = transforms.Compose([
     transforms.RandomResizedCrop(224),
     transforms.RandomHorizontalFlip(),
@@ -116,6 +117,9 @@ test_data_transform = transforms.Compose([
 
 print train_data_transform,test_data_transform
 
+log(args.log,str(train_data_transform))
+log(args.log,str(test_data_transform))
+
 env_dict = os.environ
 dataset_path = env_dict.get('DATASET')
 
@@ -130,6 +134,7 @@ elif args.arch == 'vgg':
     model = vgg()
 model.cuda()
 print model
+log(args.log,str(model))
 
 start_epoch = args.start_epoch
 total_epoch = args.epochs

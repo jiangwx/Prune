@@ -117,6 +117,7 @@ test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.test_bat
 
 model = torch.load(args.model)
 print model
+log(args.log,str(model))
 
 start_epoch = args.start_epoch
 total_epoch = args.epochs
