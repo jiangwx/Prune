@@ -14,21 +14,26 @@ import numpy as np
 dark_cfg = {
     19 : [[32,3,1],'M',[64,3,1],'M',[128,3,1],[64,1,1],[128,3,1],'M',[256,3,1],[128,1,1],[256,3,1],'M',[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],'M',[1024,3,1],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1]],
     53 : [[32,3,1],
-            [64,3,2],[32,1,1],[64,3,1],
-            [128,3,2],[64,1,1],[128,3,1],[64,1,1],[128,3,1],
-            [256,3,2],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],
-            [512,3,2],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],
-            [1024,3,2],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1]]
+          [64,3,2],[32,1,1],[64,3,1],
+          [128,3,2],[64,1,1],[128,3,1],[64,1,1],[128,3,1],
+          [256,3,2],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],[128,1,1],[256,3,1],
+          [512,3,2],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],[256,1,1],[512,3,1],
+          [1024,3,2],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1],[512,1,1],[1024,3,1]]
 }
 
 class darknet(nn.Module):
-    def __init__(self, depth=19, init_weights=True, cfg=None):
+    def __init__(self, depth=19, dataset='CCCV-30', init_weights=True, cfg=None):
         super(darknet, self).__init__()
         if cfg is None:
             cfg = dark_cfg[depth]
 
         self.feature = self.make_layers(cfg, True)
-        num_classes = 30
+
+        if dataset == 'CCCV-30':
+            num_classes = 30
+        elif dataset == 'imagenet':
+            num_classes = 1000
+
         self.classifier = nn.Sequential(nn.Conv2d(cfg[-1][0], out_channels=num_classes, kernel_size=1, stride=1, padding=1, bias=False), nn.AvgPool2d(7))
         if init_weights:
             self._initialize_weights()
@@ -76,7 +81,7 @@ vgg_cfg = {
 }
 
 class vgg(nn.Module):
-    def __init__(self, depth=19, init_weights=True, cfg=None):
+    def __init__(self, depth=19, dataset='CCCV-30', init_weights=True, cfg=None):
         super(vgg, self).__init__()
         if cfg is None:
             cfg = vgg_cfg[depth]
@@ -85,7 +90,11 @@ class vgg(nn.Module):
 
         self.feature = self.make_layers(cfg, True)
 
-        num_classes = 30
+        if dataset == 'CCCV-30':
+            num_classes = 30
+        elif dataset == 'imagenet':
+            num_classes = 1000
+
         self.classifier = nn.Sequential(
               nn.Linear(cfg[-2], 512),
               nn.BatchNorm1d(512),
