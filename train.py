@@ -17,8 +17,8 @@ import numpy as np
 from model import *
 
 parser = argparse.ArgumentParser(description='PyTorch CCCV30 training')
-parser.add_argument('--batch-size', type=int, default=64, metavar='N',
-                    help='input batch size for training (default: 64)')
+parser.add_argument('--batch-size', type=int, default=32, metavar='N',
+                    help='input batch size for training (default: 32)')
 parser.add_argument('--test-batch-size', type=int, default=32, metavar='N',
                     help='input batch size for testing (default: 32)')
 parser.add_argument('--epochs', type=int, default=160, metavar='N',
@@ -37,7 +37,7 @@ parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed (default: 1)')
 parser.add_argument('--log-interval', type=int, default=100, metavar='N',
                     help='how many batches to wait before logging training status')
-parser.add_argument('--arch', default='darknet', type=str, 
+parser.add_argument('--arch', default='dark', type=str, 
                     help='architecture to use')
 parser.add_argument('--depth', default=19, type=int,
                     help='depth of the neural network')
@@ -129,9 +129,9 @@ test_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/test
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=True, num_workers=12)
 
 if args.arch == 'dark':
-    model = darknet()
+    model = darknet(depth=args.depth)
 elif args.arch == 'vgg':
-    model = vgg()
+    model = vgg(depth=args.depth)
 model.cuda()
 print model
 log(args.log,str(model))
