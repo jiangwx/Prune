@@ -19,6 +19,8 @@ from model import *
 parser = argparse.ArgumentParser(description='PyTorch CCCV30 training')
 parser.add_argument('--batch-size', type=int, default=32, metavar='N',
                     help='input batch size for training (default: 32)')
+parser.add_argument('--dataset', type=str, default='CCCV-30',
+                    help='training dataset (default: CCCV-30)')
 parser.add_argument('--test-batch-size', type=int, default=32, metavar='N',
                     help='input batch size for testing (default: 32)')
 parser.add_argument('--epochs', type=int, default=160, metavar='N',
@@ -51,7 +53,7 @@ def log(log_file,str):
     log.close()
 
 def decay(base_lr,epoch):
-    lr = base_lr *  (0.1 ** (epoch // 30))
+    lr = base_lr *  (0.1 ** (epoch // 25))
     return lr
 
 def poly(base_lr, power, total_epoch, now_epoch):
@@ -123,15 +125,20 @@ log(args.log,str(test_data_transform))
 env_dict = os.environ
 dataset_path = env_dict.get('DATASET')
 
-train_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/train_set', transform=train_data_transform)
+if args.dataset == 'CCCV-30':
+    train_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/train_set', transform=train_data_transform)
+    test_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/test_set', transform=test_data_transform)
+elif args.dataset == 'imagenet':
+    train_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/imagenet/train', transform=train_data_transform)
+    test_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/imagenet/val', transform=test_data_transform)
+
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=12)
-test_dataset = torchvision.datasets.ImageFolder(root=dataset_path+'/CCCV-30/test_set', transform=test_data_transform)
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=True, num_workers=12)
 
 if args.arch == 'dark':
-    model = darknet(depth=args.depth)
+    model = darknet(depth=args.depth, dataset = args.dataset)
 elif args.arch == 'vgg':
-    model = vgg(depth=args.depth)
+    model = vgg(depth=args.depth, dataset = args.dataset)
 model.cuda()
 print model
 log(args.log,str(model))
